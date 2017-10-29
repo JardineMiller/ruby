@@ -8,18 +8,15 @@ def ask(question)
 	gets.chomp.to_i
 end
 
+def price(quantity)
+	price = 10
+	price = 9 if quantity >= 50
+	price = 8 if quantity >= 100
+	quantity * price
+end
+
 puts "Welcome to the Widget Store!"
 answer = ask("How many widgets are you ordering?")
 
-
-if (answer >= 100)
-	price = 8
-elsif (answer >= 50)
-	price = 9
-else
-	price = 10
-end
-
-total = answer * price
-
+total = price(answer)
 puts "The total price for #{answer} widgets is £#{total}."
